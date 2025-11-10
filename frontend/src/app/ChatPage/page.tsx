@@ -34,7 +34,7 @@ const ChatPage = () => {
     setResults([]);
 
     try {
-      const resp = await fetch("http://localhost:5000/api/recommendations", {
+      const resp = await fetch("http://localhost:5500/api/recommendations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -104,15 +104,15 @@ const ChatPage = () => {
           Previous Responses
         </h2>
         {history.length === 0 ? (
-          <p className="text-gray-500 text-sm">No responses yet</p>
+          <p className="text-white text-sm">No responses yet</p>
         ) : (
           <ul className="space-y-2">
             {history.map((h, i) => (
-              <li key={i} className="p-2 border rounded hover:bg-gray-50">
-                <p className="text-sm text-gray-700 truncate">
+              <li key={i} className="p-2 border rounded hover:bg-[#14325c]">
+                <p className="text-sm text-white truncate">
                   Skills: {h.query.skills || "-"}
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-white">
                   {h.query.city}, {h.query.state}
                 </p>
               </li>
@@ -293,7 +293,7 @@ const ChatPage = () => {
           {error && <div className="text-red-600">{error}</div>}
           {results.length > 0 && (
             <div>
-              <h2 className="text-xl font-medium mb-3">Top Internship Picks</h2>
+              <h2 className="text-4xl font-black mb-3  text-[#0F284A]">Top Internship Picks</h2>
               <div className="space-y-4">
                 {results.map((r) => (
                   <a
@@ -305,18 +305,18 @@ const ChatPage = () => {
                   >
                     <div className="flex justify-between items-start">
                       <div>
-                        <h3 className="font-semibold">{r.title}</h3>
-                        <p className="text-sm text-gray-600">
+                        <h3 className="font-semibold text-black">{r.title}</h3>
+                        <p className="text-sm text-black">
                           {[r.city, r.state].filter(Boolean).join(", ")}
                         </p>
                       </div>
-                      <div className="text-sm text-gray-500">
+                      {/* <div className="text-sm text-black">
                         Score: {r.score}
-                      </div>
+                      </div> */}
                     </div>
-                    {r.why && (
-                      <p className="mt-2 text-sm text-gray-700">Why: {r.why}</p>
-                    )}
+                    {/* {r.why && (
+                      <p className="mt-2 text-sm text-black">Why: {r.why}</p>
+                    )} */}
                   </a>
                 ))}
               </div>

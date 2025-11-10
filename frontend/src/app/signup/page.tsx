@@ -26,7 +26,7 @@ const Signup = () => {
   e.preventDefault();
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/register`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_CHATBOT}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
